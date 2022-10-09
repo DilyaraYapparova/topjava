@@ -56,10 +56,10 @@ public class UserMealsUtil {
                                                              LocalTime endTime, int caloriesPerDay) {
         Map<LocalDate, Integer> summaryCaloriesByDate = meals.stream()
                 .collect(Collectors.toMap(UserMealsUtil::toLocalDate,
-                 UserMeal::getCalories, Integer::sum));
+                        UserMeal::getCalories, Integer::sum));
         return meals.stream()
                 .filter(userMeal -> TimeUtil.isBetweenHalfOpen(toLocalTime(userMeal), startTime, endTime))
-                .map(userMeal -> mapEntityToDto(userMeal,summaryCaloriesByDate.get(toLocalDate(userMeal)) > caloriesPerDay))
+                .map(userMeal -> mapEntityToDto(userMeal, summaryCaloriesByDate.get(toLocalDate(userMeal)) > caloriesPerDay))
                 .collect(Collectors.toList());
     }
 
@@ -68,6 +68,7 @@ public class UserMealsUtil {
                 userMeal.getCalories(), excess);
 
     }
+
     private static LocalTime toLocalTime(UserMeal userMeal) {
         return userMeal.getDateTime().toLocalTime();
     }
