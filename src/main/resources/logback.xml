@@ -4,7 +4,6 @@
     <!-- To enable JMX Management -->
     <jmxConfigurator/>
 
-    <!--FileAppender записывает в файл-->
     <appender name="file" class="ch.qos.logback.core.FileAppender">
         <file>${TOPJAVA_ROOT}/log/topjava.log</file>
 
@@ -13,7 +12,7 @@
             <pattern>%date %-5level %logger{0} [%file:%line] %msg%n</pattern>
         </encoder>
     </appender>
-<!--ConsoleAppender вывыъодит в консоль-->
+
     <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
             <charset>UTF-8</charset>
